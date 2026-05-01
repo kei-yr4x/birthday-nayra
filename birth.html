@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday nayra </title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue-light: #c8e8ff;
+      --blue-mid: #6ab8f0;
+      --blue-deep: #2b7abf;
+      --blue-dark: #1a5fa3;
+      --pink-soft: #fce4f0;
+      --pink-mid: #f7b8d8;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(160deg, #b8deff 0%, #e0f2ff 50%, #c5e8ff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Floating stars bg */
+    .bg-stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bstar {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: blink ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(.5);
+      }
+
+      50% {
+        opacity: .7;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Confetti */
+    .conf-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .conf {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      animation: conffall linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes conffall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: .9;
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(800deg);
+        opacity: 0;
+      }
+    }
+
+    /* Pages */
+    .page {
+      display: none;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      padding: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeSlide 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ============ PAGE 1 ============ */
+    .hbd-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.1rem;
+      color: var(--blue-dark);
+      text-shadow: 2px 3px 0 #aed9f7;
+      text-align: center;
+      margin-bottom: 1rem;
+      animation: bounce-title 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce-title {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-6px) rotate(1deg);
+      }
+    }
+
+    .cinna-img-wrap {
+      width: 240px;
+      height: 240px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      border: 4px solid #87c9f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(100, 180, 240, 0.35);
+      animation: float-cinna 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    @keyframes float-cinna {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .cinna-img-wrap {
+      width: 200px;
+      height: 200px;
+    }
+
+    .sparkle-row {
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      letter-spacing: 8px;
+      animation: sparkle-anim 1.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle-anim {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* ============ PAGE 2 ============ */
+    .face-emoji {
+      font-size: 4rem;
+      text-align: center;
+      animation: wibble 1s ease-in-out infinite;
+      margin-bottom: 0.8rem;
+    }
+
+    @keyframes wibble {
+
+      0%,
+      100% {
+        transform: rotate(-5deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(5deg) scale(1.08);
+      }
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 150%;
+      margin: 1.25.0rem 0;
+    }
+
+    .photo-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 10px 20px rgba(100, 180, 240, 0.3);
+      aspect-ratio: 16/9;
+      background: #d4edff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .photo-frame:hover {
+      transform: scale(1.50) rotate(1deg);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-label {
+      font-size: 0.75rem;
+      color: var(--blue-dark);
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.3rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      padding: 2px 6px;
+    }
+
+    /* ============ PAGE 3 — LETTER ============ */
+    .letter-paper {
+      background: #fffef8;
+      border-radius: 18px;
+      padding: 2rem 1.8rem 1.5rem;
+      width: 100%;
+      box-shadow:
+        0 2px 0 #e8e0c8,
+        0 4px 0 #ddd5b8,
+        0 6px 0 #ccc8a8,
+        0 12px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      border: 1px solid #e8e0c8;
+      background-image:
+        repeating-linear-gradient(transparent,
+          transparent 27px,
+          #d4e8f7 27px,
+          #d4e8f7 28px);
+      background-size: 100% 28px;
+      background-position: 0 40px;
+    }
+
+    /* Paper holes */
+    .letter-paper::before {
+      content: '';
+      position: absolute;
+      left: 26px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 170, 180, 0.4);
+    }
+
+    .letter-header {
+      text-align: center;
+      margin-bottom: 1.2rem;
+      padding-top: 0.3rem;
+    }
+
+    .letter-to {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: var(--blue-dark);
+      display: block;
+    }
+
+    .letter-date {
+      font-size: 0.78rem;
+      color: #999;
+      font-style: italic;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .letter-body {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.9;
+      padding-left: 2rem;
+      font-weight: 600;
+      min-height: 180px;
+      white-space: pre-wrap;
+    }
+
+    .letter-sig {
+      text-align: right;
+      margin-top: 1.2rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      color: var(--blue-deep);
+      padding-left: 2rem;
+    }
+
+    /* Washi tape decoration */
+    .washi {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      width: 60px;
+      height: 22px;
+      background: repeating-linear-gradient(45deg,
+          rgba(135, 201, 245, 0.6),
+          rgba(135, 201, 245, 0.6) 5px,
+          rgba(255, 255, 255, 0.6) 5px,
+          rgba(255, 255, 255, 0.6) 10px);
+      border-radius: 4px;
+      transform: rotate(2deg);
+    }
+
+    .washi2 {
+      position: absolute;
+      top: -8px;
+      left: 40px;
+      width: 45px;
+      height: 18px;
+      background: repeating-linear-gradient(-45deg,
+          rgba(255, 182, 210, 0.6),
+          rgba(255, 182, 210, 0.6) 5px,
+          rgba(255, 255, 255, 0.6) 5px,
+          rgba(255, 255, 255, 0.6) 10px);
+      border-radius: 4px;
+      transform: rotate(-3deg);
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border: 2.5px solid var(--blue-mid);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: white;
+      transform: rotate(5deg);
+      opacity: 0.85;
+    }
+
+    .stamp span {
+      font-size: 9px;
+      color: var(--blue-deep);
+      font-weight: 800;
+    }
+
+    /* ============ NEXT BUTTON ============ */
+    .btn-next {
+      margin-top: 1.4rem;
+      background: linear-gradient(135deg, #3498db, #1a77c9);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 50px;
+      padding: 0.75rem 2.5rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(52, 152, 219, 0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(52, 152, 219, 0.5);
+    }
+
+    .btn-next:active {
+      transform: scale(0.96);
+    }
+
+    /* Page indicator */
+    .page-dots {
+      display: flex;
+      gap: 7px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(100, 180, 240, 0.3);
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--blue-deep);
+      width: 20px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-stars" id="bgStars"></div>
+  <div class="conf-wrap" id="confWrap"></div>
+
+  <!-- ======== PAGE 1: Cinnamoroll ======== -->
+  <div class="page active" id="page1">
+    <div class="hbd-title">Happy Birthday<br>nayra! </div>
+
+    <div style="text-align:center;">
+      <img src="Cinnamoroll.gif" width="200">
+    </div>
+
+    <div class="sparkle-row">૮ ˶ᵔ ᵕ ᵔ˶ ა</div>
+
+    <button class="btn-next" onclick="goTo(2)">Next ➜</button>
+
+    <div class="page-dots">
+      <div class="dot active" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+    </div>
+  </div>
+
+  <!-- ======== PAGE 2: Photos ======== -->
+  <div class="page" id="page2">
+    <div class="face-emoji"> (๑•ᴗ•๑)♡ </div>
+
+    <div class="photos-grid">
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="photo-frame">
+          <img src="emci.jpeg" alt="unyah"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>🍌 Banana guy<br>Minecraft</div>'" />
+        </div>
+        <div class="photo-label"> emci</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="photo-frame">
+          <img src="roblok.jpeg" alt="roblok"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>🎀 Roblox<br>besties!</div>'" />
+        </div>
+        <div class="photo-label"> ni i ss karna lucu ajaw si</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="photo-frame">
+          <img src="rubluk.jpeg" alt="rubluk"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>🐄 Farm<br>Minecraft</div>'" />
+        </div>
+        <div class="photo-label">tungtung</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div class="photo-frame">
+          <img src="anomali.jpeg" alt="emci"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>🌸 Sakura<br>Cinnamoroll!</div>'" />
+        </div>
+        <div class="photo-label">anomali banannaana</div>
+      </div>
+    </div>
+
+    <button class="btn-next" onclick="goTo(3)">Next ➜</button>
+
+    <div class="page-dots">
+      <div class="dot" id="dot1b"></div>
+      <div class="dot active" id="dot2b"></div>
+      <div class="dot" id="dot3b"></div>
+    </div>
+  </div>
+
+  <!-- ======== PAGE 3: Letter ======== -->
+  <div class="page" id="page3">
+    <div class="letter-paper">
+      <div class="washi"></div>
+      <div class="washi2"></div>
+
+      <div class="letter-header">
+        <span class="letter-to">✉ For: Nayra ✉</span>
+        <span class="letter-date">14 may 2026 </span>
+      </div>
+
+      <div class="letter-body">hai nay
+
+        erm happy birthday? uh idk what
+      </div>
+
+      <div class="letter-sig">
+        <br>
+        <span style="font-size:1.00rem;"> </span>
+      </div>
+
+      <div class="stamp">♡<span>BIRTHDAY</span></div>
+    </div>
+
+    <div class="page-dots" style="margin-top:1.2rem;">
+      <div class="dot" id="dot1c"></div>
+      <div class="dot" id="dot2c"></div>
+      <div class="dot active" id="dot3c"></div>
+    </div>
+
+    <p style="margin-top:1rem;font-size:0.82rem;color:#5a96c5;font-weight:700;text-align:center;">
+      Happy Birthday nayra! <br>
+      <span style="font-size:0.75rem;color:#87aabf;">Made with ♡ especially for you</span>
+    </p>
+  </div>
+
+  <script>
+    // Stars
+    const starsEl = document.getElementById('bgStars');
+    for (let i = 0; i < 35; i++) {
+      const s = document.createElement('div');
+      s.className = 'bstar';
+      s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${4 + Math.random() * 5}px;height:${4 + Math.random() * 5}px;animation-duration:${2 + Math.random() * 3}s;animation-delay:${Math.random() * 4}s;`;
+      starsEl.appendChild(s);
+    }
+
+    // Confetti
+    const confEl = document.getElementById('confWrap');
+    const cols = ['#3498db', '#87c9f5', '#aee4ff', '#f7b8d8', '#ffd700', '#ffffff', '#60b4e8'];
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement('div');
+      c.className = 'conf';
+      c.style.cssText = `left:${Math.random() * 100}%;background:${cols[~~(Math.random() * cols.length)]};animation-duration:${4 + Math.random() * 6}s;animation-delay:${Math.random() * 7}s;border-radius:${Math.random() > .5 ? '50%' : '2px'};width:${6 + Math.random() * 7}px;height:${6 + Math.random() * 7}px;`;
+      confEl.appendChild(c);
+    }
+
+    function goTo(n) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page' + n);
+      target.classList.add('active');
+      // force re-animation
+      target.style.animation = 'none';
+      void target.offsetWidth;
+      target.style.animation = '';
+
+      // Extra confetti burst
+      for (let i = 0; i < 25; i++) {
+        const c = document.createElement('div');
+        c.className = 'conf';
+        c.style.cssText = `left:${20 + Math.random() * 60}%;top:30%;background:${cols[~~(Math.random() * cols.length)]};animation-duration:${1.5 + Math.random() * 2}s;animation-delay:0s;border-radius:${Math.random() > .5 ? '50%' : '2px'};width:${8 + Math.random() * 8}px;height:${8 + Math.random() * 8}px;opacity:1;`;
+        confEl.appendChild(c);
+        setTimeout(() => c.remove(), 3500);
+      }
+    }
+  </script>
+</body>
+
+</html>
