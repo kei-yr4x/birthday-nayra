@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Nayra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue-light: #c8e8ff;
+      --blue-mid: #6ab8f0;
+      --blue-deep: #2b7abf;
+      --blue-dark: #1a5fa3;
+      --pink-soft: #fce4f0;
+      --pink-mid: #f7b8d8;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(160deg, #b8deff 0%, #e0f2ff 50%, #c5e8ff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bg-stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bstar {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: blink ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(.5)
+      }
+
+      50% {
+        opacity: .7;
+        transform: scale(1.2)
+      }
+    }
+
+    .conf-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .conf {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      animation: conffall linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes conffall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: .9
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(800deg);
+        opacity: 0
+      }
+    }
+
+    .heart-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.2rem;
+      animation: heartrise linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes heartrise {
+      0% {
+        transform: translateY(110vh) scale(0.5);
+        opacity: 0
+      }
+
+      10% {
+        opacity: 0.8
+      }
+
+      90% {
+        opacity: 0.6
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0
+      }
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #6ab8f0, #3498db);
+      border-radius: 50%;
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+      transition: transform 0.2s;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .page {
+      display: none;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      padding: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeSlide 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+      }
+    }
+
+    .hbd-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.1rem;
+      color: var(--blue-dark);
+      text-shadow: 2px 3px 0 #aed9f7;
+      text-align: center;
+      margin-bottom: 1rem;
+      animation: bounce-title 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce-title {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg)
+      }
+
+      50% {
+        transform: translateY(-6px) rotate(1deg)
+      }
+    }
+
+    .sparkle-row {
+      font-size: 1.1rem;
+      margin: 0.8rem 0;
+      letter-spacing: 6px;
+      color: var(--blue-dark);
+      font-weight: 700;
+      animation: sparkle-anim 1.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle-anim {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.1)
+      }
+    }
+
+    .music-section {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 1rem 1.5rem;
+      margin: 0.8rem 0;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(106, 184, 240, 0.3);
+      box-shadow: 0 4px 20px rgba(100, 180, 240, 0.2);
+    }
+
+    .music-title {
+      font-size: 0.85rem;
+      color: var(--blue-dark);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .music-note {
+      font-size: 0.75rem;
+      color: #87aabf;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn-play {
+      background: linear-gradient(135deg, #f7b8d8, #f090c0);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.8rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(240, 144, 192, 0.4);
+      transition: transform 0.15s;
+    }
+
+    .btn-play:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-play.playing {
+      background: linear-gradient(135deg, #6ab8f0, #3498db);
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 10px 30px rgba(100, 180, 240, 0.3);
+      background: #000;
+      margin: 0.8rem 0;
+    }
+
+    .video-container video {
+      width: 100%;
+      display: block;
+      max-height: 260px;
+      object-fit: cover;
+    }
+
+    .video-caption {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--blue-dark);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .face-emoji {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 0.6rem;
+      color: var(--blue-dark);
+      font-weight: 700;
+    }
+
+    /* ── PHOTO CAROUSEL ── */
+    .photos-carousel-wrapper {
+      width: 100%;
+      margin: 0.6rem 0;
+    }
+
+    .photos-carousel-track-outer {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .photos-carousel-track {
+      display: flex;
+      gap: 10px;
+      transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+      will-change: transform;
+    }
+
+    .photo-card {
+      flex: 0 0 calc(50% - 5px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .photo-frame {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid white;
+      box-shadow: 0 6px 16px rgba(100, 180, 240, 0.3);
+      aspect-ratio: 4/3;
+      background: #d4edff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-label {
+      font-size: 0.7rem;
+      color: var(--blue-dark);
+      font-weight: 700;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 8px;
+      padding: 2px 7px;
+    }
+
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .carousel-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #6ab8f0, #3498db);
+      color: white;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(52, 152, 219, 0.35);
+      transition: transform 0.15s, opacity 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .carousel-arrow:disabled {
+      opacity: 0.3;
+      cursor: default;
+      transform: none;
+    }
+
+    .carousel-arrow:not(:disabled):hover {
+      transform: scale(1.1);
+    }
+
+    .carousel-dots-wrap {
+      display: flex;
+      gap: 5px;
+    }
+
+    .cdot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(100, 180, 240, 0.3);
+      transition: all 0.3s;
+    }
+
+    .cdot.active {
+      background: var(--blue-deep);
+      width: 18px;
+      border-radius: 4px;
+    }
+
+    /* ── CHOICE / NO / BACK pages ── */
+    .choice-cinna {
+      text-align: center;
+      animation: wibble 1.2s ease-in-out infinite;
+      margin: 0.5rem 0;
+    }
+
+    @keyframes wibble {
+
+      0%,
+      100% {
+        transform: rotate(-5deg) scale(1)
+      }
+
+      50% {
+        transform: rotate(5deg) scale(1.08)
+      }
+    }
+
+    .choice-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.15rem;
+      color: var(--blue-dark);
+      text-align: center;
+      margin: 0.8rem 0 1.2rem;
+      line-height: 1.6;
+    }
+
+    .choice-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #6ab8f0, #3498db);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.7rem 2rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(52, 152, 219, 0.4);
+      transition: transform 0.15s;
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .btn-no {
+      background: linear-gradient(135deg, #f7b8d8, #f090c0);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.7rem 2rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(240, 144, 192, 0.4);
+      transition: transform 0.15s;
+    }
+
+    .btn-no:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .sad-text {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #c06090;
+      font-weight: 700;
+      line-height: 1.8;
+      margin: 0.8rem 0;
+      border: 2px dashed #f7b8d8;
+    }
+
+    .yeay-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: var(--blue-dark);
+      text-align: center;
+      margin: 0.8rem 0;
+      animation: bounce-title 1s ease-in-out infinite;
+    }
+
+    .btn-next {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #3498db, #1a77c9);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 50px;
+      padding: 0.75rem 2.5rem;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(52, 152, 219, 0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(52, 152, 219, 0.5);
+    }
+
+    .btn-next:active {
+      transform: scale(0.96);
+    }
+
+    .btn-back {
+      margin-top: 0.8rem;
+      background: linear-gradient(135deg, #f7b8d8, #e090c0);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(240, 144, 192, 0.4);
+      transition: transform 0.15s;
+    }
+
+    .btn-back:hover {
+      transform: scale(1.05);
+    }
+
+    .page-dots {
+      display: flex;
+      gap: 7px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(100, 180, 240, 0.3);
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--blue-deep);
+      width: 20px;
+      border-radius: 4px;
+    }
+
+    /* ── LETTER ── */
+    #page-letter {
+      padding: 1rem;
+    }
+
+    .letter-outer {
+      position: relative;
+      width: 100%;
+    }
+
+    .char-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .letter-paper {
+      background: #fffef8;
+      border-radius: 18px;
+      padding: 1.8rem 1.8rem 1.4rem;
+      width: 100%;
+      box-shadow: 0 2px 0 #e8e0c8, 0 4px 0 #ddd5b8, 0 6px 0 #ccc8a8, 0 12px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      border: 1px solid #e8e0c8;
+      background-image: repeating-linear-gradient(transparent, transparent 27px, #d4e8f7 27px, #d4e8f7 28px);
+      background-size: 100% 28px;
+      background-position: 0 40px;
+      min-height: 280px;
+      overflow: hidden;
+    }
+
+    .letter-paper::before {
+      content: '';
+      position: absolute;
+      left: 26px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 170, 180, 0.4);
+    }
+
+    .letter-header {
+      text-align: center;
+      margin-bottom: 1.2rem;
+      padding-top: 0.3rem;
+    }
+
+    .letter-to {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: var(--blue-dark);
+      display: block;
+    }
+
+    .letter-date {
+      font-size: 0.78rem;
+      color: #999;
+      font-style: italic;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .letter-slides {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+    }
+
+    .letter-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateX(60px);
+      transition: all 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+      pointer-events: none;
+    }
+
+    .letter-slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .letter-slide.exit {
+      opacity: 0;
+      transform: translateX(-60px);
+      position: absolute;
+    }
+
+    .letter-body {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.95;
+      padding-left: 2rem;
+      font-weight: 600;
+      white-space: pre-wrap;
+    }
+
+    .letter-sig {
+      text-align: right;
+      margin-top: 1rem;
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      color: var(--blue-deep);
+      padding-left: 2rem;
+    }
+
+    .letter-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-left: 2rem;
+    }
+
+    .letter-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .ldot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(100, 180, 240, 0.3);
+      transition: all 0.3s;
+    }
+
+    .ldot.active {
+      background: var(--blue-deep);
+      width: 18px;
+      border-radius: 4px;
+    }
+
+    .btn-slide {
+      background: linear-gradient(135deg, #6ab8f0, #3498db);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.35rem 1.1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.35);
+      transition: transform 0.15s;
+    }
+
+    .btn-slide:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .btn-slide:active {
+      transform: scale(0.96);
+    }
+
+    .btn-slide:disabled {
+      opacity: 0.35;
+      cursor: default;
+      transform: none;
+    }
+
+    .washi {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      width: 60px;
+      height: 22px;
+      background: repeating-linear-gradient(45deg, rgba(135, 201, 245, 0.6), rgba(135, 201, 245, 0.6) 5px, rgba(255, 255, 255, 0.6) 5px, rgba(255, 255, 255, 0.6) 10px);
+      border-radius: 4px;
+      transform: rotate(2deg);
+    }
+
+    .washi2 {
+      position: absolute;
+      top: -8px;
+      left: 40px;
+      width: 45px;
+      height: 18px;
+      background: repeating-linear-gradient(-45deg, rgba(255, 182, 210, 0.6), rgba(255, 182, 210, 0.6) 5px, rgba(255, 255, 255, 0.6) 5px, rgba(255, 255, 255, 0.6) 10px);
+      border-radius: 4px;
+      transform: rotate(-3deg);
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border: 2.5px solid var(--blue-mid);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: white;
+      transform: rotate(5deg);
+      opacity: 0.85;
+    }
+
+    .stamp span {
+      font-size: 9px;
+      color: var(--blue-deep);
+      font-weight: 800;
+    }
+
+    @keyframes float-char {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg)
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(3deg)
+      }
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 16px;
+      border: 3px solid white;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .page-label {
+      font-size: 0.82rem;
+      color: #5a96c5;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .cinna-float {
+      animation: float-char 3s ease-in-out infinite;
+    }
+
+    .cinna-float.d1 {
+      animation-delay: 0.5s;
+    }
+
+    .cinna-float.d2 {
+      animation-delay: 1s;
+    }
+
+    .cinna-float.d3 {
+      animation-delay: 1.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-stars" id="bgStars"></div>
+  <div class="conf-wrap" id="confWrap"></div>
+  <div class="heart-wrap" id="heartWrap"></div>
+
+  <audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</button>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close">✕</button>
+    <img id="lbImg" src="" alt="">
+  </div>
+
+  <!-- ══════════ PAGE 1 ══════════ -->
+  <div class="page active" id="page1">
+    <div class="hbd-title">Happy Birthday<br>Nayra</div>
+
+    <div style="text-align:center;margin:0.3rem 0;">
+      <img src="cinna.gif" width="180" alt="cinnamoroll" class="cinna-float" id="openGif">
+    </div>
+
+    <div class="sparkle-row">૮₍ ˃ ⤙ ˂ ₎ა</div>
+
+    <div class="music-section">
+      <div class="music-title">oy oy cie 17</div>
+      <div class="music-note">pencet dulu nay lagu nyo</div>
+      <button class="btn-play" id="btnPlay" onclick="startMusic()">▶ play</button>
+    </div>
+
+    <button class="btn-next" onclick="goTo('page2')" style="margin-top:1rem;">next</button>
+
+    <div class="page-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ PAGE 2 ══════════ -->
+  <div class="page" id="page2">
+    <div class="hbd-title" style="font-size:1.5rem;">𐔌՞. .՞𐦯</div>
+
+    <div class="video-caption">LUCUUUUUU WOEEEEEEEEEE</div>
+
+    <div class="video-container">
+      <video controls playsinline>
+        <source src="roblokkk.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="page-label">(˶˃𐃷˂˶)</div>
+
+    <button class="btn-next" onclick="goTo('page3')" style="margin-top:0.8rem;">next</button>
+
+    <div class="page-dots">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ PAGE 3 — PHOTO CAROUSEL ══════════ -->
+  <div class="page" id="page3">
+    <div class="face-emoji">&gt;⩊&lt;</div>
+
+    <div class="photos-carousel-wrapper">
+      <div class="photos-carousel-track-outer">
+        <div class="photos-carousel-track" id="carouselTrack">
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('emci.jpg')">
+              <img src="emci.jpg" alt="emci"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>emci</div>'" />
+            </div>
+            <div class="photo-label">emci</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('roblok.jpg')">
+              <img src="roblok.jpg" alt="roblok"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>roblox</div>'" />
+            </div>
+            <div class="photo-label">pink apa ni wok</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('rubluk.jpg')">
+              <img src="rubluk.jpg" alt="rubluk"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>tungtung</div>'" />
+            </div>
+            <div class="photo-label">angjay sigma bat gwah</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('anomali.jpg')">
+              <img src="anomali.jpg" alt="anomali"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>anomali</div>'" />
+            </div>
+            <div class="photo-label">anomali banannaana cuy</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('roblokk.jpg')">
+              <img src="roblokk.jpg" alt="roblokk"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>roblox lagi</div>'" />
+            </div>
+            <div class="photo-label">LUCUK WOY JYUJYUR</div>
+          </div>
+
+          <div class="photo-card">
+            <div class="photo-frame" onclick="openLightbox('emcih.jpeg')">
+              <img src="emcih.jpeg" alt="emcih"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:12px;text-align:center;font-size:0.75rem;color:#2b7abf;font-weight:700;\'>emcih</div>'" />
+            </div>
+            <div class="photo-label">aoa ini dwagg</div>
+          </div>
+
+        </div><!-- /carouselTrack -->
+      </div><!-- /track-outer -->
+
+      <div class="carousel-nav">
+        <button class="carousel-arrow" id="carouselPrev" onclick="carouselMove(-1)" disabled>‹</button>
+        <div class="carousel-dots-wrap" id="carouselDots"></div>
+        <button class="carousel-arrow" id="carouselNext" onclick="carouselMove(1)">›</button>
+      </div>
+    </div><!-- /photos-carousel-wrapper -->
+
+    <button class="btn-next" onclick="goTo('page4')">next</button>
+
+    <div class="page-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div><!-- /page3 -->
+
+  <!-- ══════════ PAGE 4 ══════════ -->
+  <div class="page" id="page4">
+    <div class="choice-cinna">
+      <img src="cinnamorol kedip-20260428-165156.gif" width="160" alt="cinna kedip" onerror="this.src='cinna.gif'">
+    </div>
+
+    <div class="choice-text">
+      btw i have a letter for you, do you want to read it?? ≽^•˕• ྀི≼
+    </div>
+
+    <div class="choice-btns">
+      <button class="btn-yes" onclick="goTo('page-letter')">yes</button>
+      <button class="btn-no" onclick="goTo('page-no')">no</button>
+    </div>
+
+    <div class="page-dots" style="margin-top:1.2rem;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div><!-- /page4 -->
+
+  <!-- ══════════ PAGE NO ══════════ -->
+  <div class="page" id="page-no">
+    <div class="choice-cinna">
+      <img src="sad cinnamorol-20260428-165546.gif" width="160" alt="cinna sad" onerror="this.src='cinna.gif'">
+    </div>
+
+    <div class="sad-text">
+      do you hate me? that's why you don't want to read it, hmph<br>
+      HIKSHIKSHIKS YOU REALLY HATE ME??<br><br>
+      PLEASE PRESS THE BACK BUTTON ;&lt; <br>
+      dun hit mi pilis<br><br>
+      *sad with a sigma face
+    </div>
+
+    <button class="btn-back" onclick="goTo('page-back')">← back</button>
+
+    <div class="page-dots" style="margin-top:1rem;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+  </div><!-- /page-no -->
+
+  <!-- ══════════ PAGE BACK ══════════ -->
+  <div class="page" id="page-back">
+    <div class="choice-cinna">
+      <img src="Cinnamoroll.gif" width="160" alt="cinnahepi" onerror="this.src='cinna.gif'">
+    </div>
+
+    <div class="yeay-text">YOUUU BACKKKKKKK YEAYYYYYYYY<br>∩˙˘˙∩</div>
+
+    <button class="btn-next" onclick="goTo('page-letter')">read the letter</button>
+
+    <div class="page-dots" style="margin-top:1rem;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+  </div><!-- /page-back -->
+
+  <!-- ══════════ PAGE LETTER ══════════ -->
+  <div class="page" id="page-letter">
+
+    <div class="letter-outer">
+
+      <!-- floating character deco: top-left -->
+      <div class="char-deco" style="top:-28px;left:-18px;animation:float-char 3s ease-in-out infinite;">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+          <ellipse cx="25" cy="32" rx="13" ry="15" fill="#c8e8ff" stroke="#6ab8f0" stroke-width="1.5" />
+          <ellipse cx="19" cy="12" rx="5" ry="10" fill="#c8e8ff" stroke="#6ab8f0" stroke-width="1.5" />
+          <ellipse cx="31" cy="12" rx="5" ry="10" fill="#c8e8ff" stroke="#6ab8f0" stroke-width="1.5" />
+          <ellipse cx="19" cy="11" rx="2.5" ry="6" fill="#f7b8d8" />
+          <ellipse cx="31" cy="11" rx="2.5" ry="6" fill="#f7b8d8" />
+          <circle cx="21" cy="30" r="2" fill="#2b7abf" />
+          <circle cx="29" cy="30" r="2" fill="#2b7abf" />
+          <ellipse cx="25" cy="35" rx="3" ry="2" fill="#f7b8d8" />
+        </svg>
+      </div>
+
+      <!-- floating character deco: top-right -->
+      <div class="char-deco"
+        style="top:-22px;right:-16px;animation:float-char 3.5s ease-in-out infinite;animation-delay:0.8s;">
+        <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
+          <circle cx="23" cy="26" r="14" fill="#e0f2ff" stroke="#87c9f5" stroke-width="1.5" />
+          <circle cx="15" cy="20" r="8" fill="#e0f2ff" stroke="#87c9f5" stroke-width="1.5" />
+          <circle cx="31" cy="20" r="8" fill="#e0f2ff" stroke="#87c9f5" stroke-width="1.5" />
+          <circle cx="23" cy="15" r="7" fill="#e0f2ff" stroke="#87c9f5" stroke-width="1.5" />
+          <circle cx="19" cy="26" r="1.8" fill="#2b7abf" />
+          <circle cx="27" cy="26" r="1.8" fill="#2b7abf" />
+          <path d="M20 30 Q23 33 26 30" stroke="#2b7abf" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- floating character deco: bottom-right -->
+      <div class="char-deco"
+        style="bottom:-24px;right:-10px;animation:float-char 4s ease-in-out infinite;animation-delay:1.5s;">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="26" r="13" fill="#fce4f0" stroke="#f7b8d8" stroke-width="1.5" />
+          <circle cx="13" cy="17" r="7" fill="#fce4f0" stroke="#f7b8d8" stroke-width="1.5" />
+          <circle cx="31" cy="17" r="7" fill="#fce4f0" stroke="#f7b8d8" stroke-width="1.5" />
+          <circle cx="13" cy="17" r="3.5" fill="#f7b8d8" />
+          <circle cx="31" cy="17" r="3.5" fill="#f7b8d8" />
+          <circle cx="18" cy="25" r="2" fill="#1a5fa3" />
+          <circle cx="26" cy="25" r="2" fill="#1a5fa3" />
+          <ellipse cx="22" cy="30" rx="4" ry="2.5" fill="#f7b8d8" />
+        </svg>
+      </div>
+
+      <!-- floating character deco: bottom-left -->
+      <div class="char-deco"
+        style="bottom:-20px;left:-12px;animation:float-char 3.8s ease-in-out infinite;animation-delay:0.4s;">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 4 L22.9 14.5 L34 14.5 L25.2 21 L28.2 31.5 L20 25.5 L11.8 31.5 L14.8 21 L6 14.5 L17.1 14.5 Z"
+            fill="#ffe8a0" stroke="#f7c948" stroke-width="1.2" />
+          <circle cx="17" cy="18" r="1.5" fill="#2b7abf" />
+          <circle cx="23" cy="18" r="1.5" fill="#2b7abf" />
+          <path d="M17.5 22 Q20 24.5 22.5 22" stroke="#2b7abf" stroke-width="1.2" fill="none" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- The letter card -->
+      <div class="letter-paper">
+        <div class="washi"></div>
+        <div class="washi2"></div>
+
+        <!-- stamp decoration -->
+        <div class="stamp">🐾<span>LOVE</span></div>
+
+        <div class="letter-header">
+          <span class="letter-to">for: nayra ♡</span>
+          <span class="letter-date">14 may 2026</span>
+        </div>
+
+        <!-- Letter slides (all siblings, not nested!) -->
+        <div class="letter-slides" id="letterSlides">
+
+          <div class="letter-slide active" id="ls1">
+            <div class="letter-body">HWLOOOWWW AYRAKK happy birthday yahh
+              ciee 17 ni yo wok siapa laa kakak ni sebenarnyaa
+              tak pande la aing buat kata kata ni unyahhh
+              ciroyooo, ermmm APA LA NDAK TAU AING HAAAAAA MAU BILANG APO</div>
+          </div>
+
+          <div class="letter-slide" id="ls2">
+            <div class="letter-body">ermm ay semoga di umur kamu yg sekarang ini kamu jadi uh lebih bahagia karna yoo
+              17 tahun cuma sekali seumur idup laa, and semoga mu mendapatkan apa yg mu ingin kan di umur mu yg
+              remajah ini angjay remajah ihiyyy WOE COPEK X BISA BUEK KTP IRI X AWAQ</div>
+          </div>
+
+          <div class="letter-slide" id="ls3">
+            <div class="letter-body">jyujyu u tu orangnya asikk baekk behhh, ntah mau gimana kami kalau ga temenan
+              sama mu, aku yakin wita dll, juga bersyukur bertemu sama mu di kehidupan nii awokawokkk makasiw yooo dah
+              jadi temen i, kalau mu butuh sesuatu/mau minta tolong chat aja aing, aing bersedia maa [kalo mampu ya wok]
+              ≽^•˕• ྀི≼</div>
+          </div>
+
+          <div class="letter-slide" id="ls4">
+            <div class="letter-body">kalau kamu sedih bisa ko cerita ke aing atau siapa pun itu u ga sendirian ko
+              ada kami yg mwu dengerin cerita u, oh ya jangan mikir kalau mu nangis tu aneh atau apa la karna cengeng
+              jangan mikir kalo nangis tu ga wajar atau apa gitu jir soalnya itu gaoaoa kamu normal kalo nangis NORMALLL
+              𐔌՞. .՞𐦯</div>
+          </div>
+
+          <div class="letter-slide" id="ls5">
+            <div class="letter-body"> ehm u berarti bagi i nay so ya kalau ada apa apa cerita ke aing pls akoh serios
+              ha, aing juga
+              mau minta maaf juga karna pernah maksa/ke kanak kanak an gitu ke mu aku juga minta maaf kalau pernah
+              ngebuat mu nangis, sakit hati, dll, aku ga bermaksud gitu ;( maaf yaa, jangan benci sama i pilis ndaks
+              bisa x aing hueheue maap x maap maap maapp </div>
+          </div>
+
+          <div class="letter-slide" id="ls6">
+            <div class="letter-body"> MAAF YA KALO WEBNYA JELEK SUMPA AINH GA PANDE CARA RAPIINNYA BIAR TEKSNYA GA
+              GITUUU IOHSOEFSDBVKSBGODSGOO SORYYYYYYYYYYYYYY AING GA PANDE BUAT KATAKATA NYA JUGA TRUS TRUS KALO ADA
+              TYPO MAAP JUGA WOE AKU BUATNYA BURU BURU DAH JAM SEGINI MAAF YA MAAP HUEUEHUHEUHEUHE</div>
+            <div class="letter-sig">— from me (๑ᵔ⤙ᵔ๑)</div>
+          </div>
+
+        </div><!-- /letter-slides -->
+
+        <!-- Nav is OUTSIDE letter-slides but INSIDE letter-paper -->
+        <div class="letter-nav">
+          <div class="letter-dots" id="ldots"></div>
+          <div style="display:flex;gap:6px;">
+            <button class="btn-slide" id="btnPrev" onclick="slideDir(-1)">← prev</button>
+            <button class="btn-slide" id="btnNext2" onclick="slideDir(1)">next →</button>
+          </div>
+        </div>
+
+      </div><!-- /letter-paper -->
+    </div><!-- /letter-outer -->
+
+    <div class="page-dots" style="margin-top:1.5rem;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+    </div>
+
+    <p style="margin-top:0.8rem;font-size:0.82rem;color:#5a96c5;font-weight:700;text-align:center;">
+      happy birthday nayra ♡<br>
+      <span style="font-size:0.75rem;color:#87aabf;">made with love for you</span>
+    </p>
+
+  </div><!-- /page-letter -->
+
+
+  <script>
+    // ── Background decoration ──
+    const starsEl = document.getElementById('bgStars');
+    for (let i = 0; i < 35; i++) {
+      const s = document.createElement('div');
+      s.className = 'bstar';
+      s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${4 + Math.random() * 5}px;height:${4 + Math.random() * 5}px;animation-duration:${2 + Math.random() * 3}s;animation-delay:${Math.random() * 4}s;`;
+      starsEl.appendChild(s);
+    }
+
+    const confEl = document.getElementById('confWrap');
+    const cols = ['#3498db', '#87c9f5', '#aee4ff', '#f7b8d8', '#ffd700', '#ffffff', '#60b4e8'];
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement('div');
+      c.className = 'conf';
+      c.style.cssText = `left:${Math.random() * 100}%;background:${cols[~~(Math.random() * cols.length)]};animation-duration:${4 + Math.random() * 6}s;animation-delay:${Math.random() * 7}s;border-radius:${Math.random() > .5 ? '50%' : '2px'};width:${6 + Math.random() * 7}px;height:${6 + Math.random() * 7}px;`;
+      confEl.appendChild(c);
+    }
+
+    const heartWrap = document.getElementById('heartWrap');
+    const heartEmojis = ['♡', '·˚', '˚·', '∘', '˙'];
+    for (let i = 0; i < 20; i++) {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = heartEmojis[~~(Math.random() * heartEmojis.length)];
+      h.style.cssText = `left:${Math.random() * 100}%;animation-duration:${6 + Math.random() * 8}s;animation-delay:${Math.random() * 8}s;font-size:${0.8 + Math.random() * 0.8}rem;color:#6ab8f0;font-weight:700;`;
+      heartWrap.appendChild(h);
+    }
+
+    // ── Music ──
+    const music = document.getElementById('bgMusic');
+    let musicPlaying = false;
+
+    function startMusic() {
+      music.volume = 0.4;
+      music.play();
+      musicPlaying = true;
+      document.getElementById('btnPlay').textContent = '⏸ playing';
+      document.getElementById('btnPlay').classList.add('playing');
+      const btn = document.getElementById('musicBtn');
+      btn.style.display = 'flex';
+      btn.textContent = '♪';
+    }
+
+    function toggleMusic() {
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+        document.getElementById('musicBtn').textContent = '♩';
+      } else {
+        music.play();
+        musicPlaying = true;
+        document.getElementById('musicBtn').textContent = '♪';
+      }
+    }
+
+    // ── Page navigation ──
+    function goTo(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(id);
+      target.classList.add('active');
+      target.style.animation = 'none';
+      void target.offsetWidth;
+      target.style.animation = '';
+      // mini confetti burst
+      for (let i = 0; i < 25; i++) {
+        const c = document.createElement('div');
+        c.className = 'conf';
+        c.style.cssText = `left:${20 + Math.random() * 60}%;top:30%;background:${cols[~~(Math.random() * cols.length)]};animation-duration:${1.5 + Math.random() * 2}s;animation-delay:0s;border-radius:${Math.random() > .5 ? '50%' : '2px'};width:${8 + Math.random() * 8}px;height:${8 + Math.random() * 8}px;opacity:1;`;
+        confEl.appendChild(c);
+        setTimeout(() => c.remove(), 3500);
+      }
+    }
+
+    // ── Photo Carousel ──
+    const PHOTOS_PER_VIEW = 2;
+    const totalPhotos = 6;
+    const totalSteps = totalPhotos - PHOTOS_PER_VIEW; // 0..4
+    let carouselIdx = 0;
+
+    function buildCarouselDots() {
+      const wrap = document.getElementById('carouselDots');
+      wrap.innerHTML = '';
+      const pages = Math.ceil(totalPhotos / PHOTOS_PER_VIEW);
+      for (let i = 0; i < pages; i++) {
+        const d = document.createElement('div');
+        d.className = 'cdot' + (Math.floor(carouselIdx / PHOTOS_PER_VIEW) === i ? ' active' : '');
+        wrap.appendChild(d);
+      }
+    }
+
+    function updateCarousel() {
+      const track = document.getElementById('carouselTrack');
+      const outer = track.parentElement;
+      const cardWidth = (outer.offsetWidth - 10) / 2;
+      track.style.transform = `translateX(-${carouselIdx * (cardWidth + 10)}px)`;
+      document.getElementById('carouselPrev').disabled = carouselIdx === 0;
+      document.getElementById('carouselNext').disabled = carouselIdx >= totalSteps;
+      buildCarouselDots();
+    }
+
+    function carouselMove(dir) {
+      carouselIdx = Math.max(0, Math.min(totalSteps, carouselIdx + dir));
+      updateCarousel();
+    }
+
+    window.addEventListener('load', () => {
+      buildCarouselDots();
+    });
+
+    // ── Letter slides ──
+    const slides = document.querySelectorAll('.letter-slide');
+    const total = slides.length;
+    let cur = 0;
+
+    function buildDots() {
+      const ldots = document.getElementById('ldots');
+      ldots.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('div');
+        d.className = 'ldot' + (i === cur ? ' active' : '');
+        ldots.appendChild(d);
+      }
+    }
+
+    function updateNav() {
+      document.getElementById('btnPrev').disabled = cur === 0;
+      document.getElementById('btnNext2').disabled = cur === total - 1;
+      buildDots();
+    }
+
+    function slideDir(dir) {
+      const oldSlide = slides[cur];
+      const newIdx = cur + dir;
+      if (newIdx < 0 || newIdx >= total) return;
+      oldSlide.classList.remove('active');
+      oldSlide.classList.add('exit');
+      setTimeout(() => oldSlide.classList.remove('exit'), 500);
+      cur = newIdx;
+      const newSlide = slides[cur];
+      newSlide.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+      newSlide.style.opacity = '0';
+      newSlide.classList.add('active');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          newSlide.style.transform = '';
+          newSlide.style.opacity = '';
+        });
+      });
+      updateNav();
+    }
+
+    buildDots();
+    updateNav();
+
+    // ── Lightbox ──
+    function openLightbox(src) {
+      document.getElementById('lbImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+
+</body>
+
+</html>
